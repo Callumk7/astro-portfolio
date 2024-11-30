@@ -1,111 +1,230 @@
 :root {
-    --accent: #ff6038;
-    --accent-dark: #991f00;
-    --black: #110909;
-    --muted: #733636;
-    --foreground: #f5f5ed;
-    --secondary: #a0c9cb;
-    --cream: #ebecdc;
+	/* Primary Colors - Orange/Red Family */
+	--orange-50: #fff0ed;
+	--orange-100: #ffe1d9;
+	--orange-200: #ffc3b3;
+	--orange-300: #ff9b82;
+	--orange-400: #ff7d5c;
+	/* Your orange-accent */
+	--orange-500: #ff6038;
+	/* Your orange */
+	--orange-600: #e14826;
+	--orange-700: #991f00;
+	/* Your red */
+	--orange-800: #7a1900;
+	--orange-900: #5c1300;
+
+	/* Secondary Colors - Blue Family */
+	--blue-50: #ebf6fa;
+	--blue-100: #d1eaf3;
+	--blue-200: #a0c9cb;
+	/* Your light-blue */
+	--blue-300: #75b4c4;
+	--blue-400: #4a9fbd;
+	--blue-500: #2885b1;
+	/* Your blue */
+	--blue-600: #1f6a8e;
+	--blue-700: #163044;
+	/* Your dark-blue */
+	--blue-800: #0e1f2d;
+	--blue-900: #071016;
+
+	/* Tertiary Colors - Olive/Earth Family */
+	--olive-50: #f5f5ed;
+	/* Your cream */
+	--olive-100: #ebecdc;
+	/* Your light-olive */
+	--olive-200: #d8d9c2;
+	--olive-300: #c5c6a8;
+	--olive-400: #b2b38e;
+	--olive-500: #9fa074;
+	--olive-600: #8c8d5a;
+	--olive-700: #797a40;
+	--olive-800: #666726;
+	--olive-900: #53540c;
+
+	/* Clay/Terra-cotta Family */
+	--clay-50: #f9eded;
+	--clay-100: #eed3d3;
+	--clay-200: #deb3b3;
+	--clay-300: #ce9393;
+	--clay-400: #be7373;
+	--clay-500: #733636;
+	/* Your clay */
+	--clay-600: #5c2b2b;
+	--clay-700: #452020;
+	--clay-800: #2e1515;
+	--clay-900: #170a0a;
+
+	/* Neutral Colors - Expanded */
+	--neutral-50: #faf9f9;
+	--neutral-100: #f8f7f7;
+	/* Your neutral-9 */
+	--neutral-200: #e3dede;
+	/* Your neutral-8 */
+	--neutral-300: #c1b5b4;
+	/* Your neutral-7 */
+	--neutral-400: #a29190;
+	/* Your neutral-6 */
+	--neutral-500: #796665;
+	/* Your neutral-5 */
+	--neutral-600: #684d4b;
+	/* Your neutral-4 */
+	--neutral-700: #5b403e;
+	/* Your neutral-3 */
+	--neutral-800: #361e1c;
+	/* Your neutral-2 */
+	--neutral-900: #110909;
+	/* Your neutral-1 */
+
+	/* New Accent Colors */
+	--sage-500: #7c9082;
+	--sage-600: #5f6d62;
+
+	--rust-500: #c35831;
+	--rust-600: #a64b2a;
+
+	--plum-500: #8e4162;
+	--plum-600: #6d3149;
+
+	/* Original Color Aliases */
+	--orange: var(--orange-500);
+	--orange-accent: var(--orange-400);
+	--red: var(--orange-700);
+	--clay: var(--clay-500);
+	--light-olive: var(--olive-100);
+    --olive: var(--olive-400);
+	--cream: var(--olive-50);
+
+	--light-blue: var(--blue-200);
+	--blue: var(--blue-500);
+	--dark-blue: var(--blue-700);
+
+    --sage: var(--sage-500);
+    --plum: var(--plum-500);
+
+    --rust: var(--rust-500);
+
+	--neutral-1: var(--neutral-900);
+	--neutral-2: var(--neutral-800);
+	--neutral-3: var(--neutral-700);
+	--neutral-4: var(--neutral-600);
+	--neutral-5: var(--neutral-500);
+	--neutral-6: var(--neutral-400);
+	--neutral-7: var(--neutral-300);
+	--neutral-8: var(--neutral-200);
+	--neutral-9: var(--neutral-100);
+
+	/* Semantic Colors */
+	--background: var(--neutral-1);
+	--foreground: var(--neutral-9);
+	--black: var(--neutral-1);
+	--white: var(--neutral-9);
+	--primary: var(--orange);
+	--primary-dark: var(--red);
+	--secondary: var(--light-blue);
+	--secondary-dark: var(--blue);
+	--accent: var(--red);
 }
 
 @font-face {
-    font-family: "Atkinson";
-    src: url("/fonts/atkinson-regular.woff") format("woff");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+	font-family: "Atkinson";
+	src: url("/fonts/atkinson-regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-    font-family: "Atkinson";
-    src: url("/fonts/atkinson-bold.woff") format("woff");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+	font-family: "Atkinson";
+	src: url("/fonts/atkinson-bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-    font-family: "Satoshi";
-    src: url("/fonts/Satoshi-Regular.woff") format("woff");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+	font-family: "Satoshi";
+	src: url("/fonts/Satoshi-Regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-    font-family: "Satoshi";
-    src: url("/fonts/Satoshi-Medium.woff") format("woff");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+	font-family: "Satoshi";
+	src: url("/fonts/Satoshi-Medium.woff") format("woff");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-    font-family: "Satoshi";
-    src: url("/fonts/Satoshi-Bold.woff") format("woff");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+	font-family: "Satoshi";
+	src: url("/fonts/Satoshi-Bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-    font-family: "Satoshi";
-    src: url("/fonts/Satoshi-Black.woff") format("woff");
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
+	font-family: "Satoshi";
+	src: url("/fonts/Satoshi-Black.woff") format("woff");
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-    font-family: "Satoshi";
-    src: url("/fonts/Satoshi-Italic.woff") format("woff");
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
+	font-family: "Satoshi";
+	src: url("/fonts/Satoshi-Italic.woff") format("woff");
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
 }
 
 @font-face {
-    font-family: "Satoshi";
-    src: url("/fonts/Satoshi-MediumItalic.woff") format("woff");
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
+	font-family: "Satoshi";
+	src: url("/fonts/Satoshi-MediumItalic.woff") format("woff");
+	font-weight: 500;
+	font-style: italic;
+	font-display: swap;
 }
 
 @font-face {
-    font-family: "Satoshi";
-    src: url("/fonts/Satoshi-BoldItalic.woff") format("woff");
-    font-weight: 700;
-    font-style: italic;
-    font-display: swap;
+	font-family: "Satoshi";
+	src: url("/fonts/Satoshi-BoldItalic.woff") format("woff");
+	font-weight: 700;
+	font-style: italic;
+	font-display: swap;
 }
 
 @font-face {
-    font-family: "Satoshi";
-    src: url("/fonts/Satoshi-BlackItalic.woff") format("woff");
-    font-weight: 900;
-    font-style: italic;
-    font-display: swap;
+	font-family: "Satoshi";
+	src: url("/fonts/Satoshi-BlackItalic.woff") format("woff");
+	font-weight: 900;
+	font-style: italic;
+	font-display: swap;
 }
 
 body {
-    font-family: "Atkinson", sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: left;
-    background: var(--black);
-    background-size: 100% 600px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    color: var(--foreground);
-    font-size: 20px;
-    line-height: 1.7;
+	font-family: "Atkinson", sans-serif;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	background: var(--background);
+	background-size: 100% 600px;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	color: var(--foreground);
+	font-size: 20px;
+	line-height: 1.7;
 }
 
 main {
-    max-width: calc(100% - 6em);
-    margin: auto;
-    padding: 3em 1em;
+	max-width: calc(100% - 6em);
+	margin: auto;
+	padding: 3em 1em;
 }
 
 h1,
@@ -114,123 +233,124 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Satoshi", sans-serif;
-    font-weight: 900;
-    margin: 0 0 0.5rem 0;
-    color: var(--foreground);
-    line-height: 1.2;
+	font-family: "Satoshi", sans-serif;
+	font-weight: 900;
+	margin: 0 0 0.5rem 0;
+	line-height: 1.2;
+	padding-bottom: 0.3em;
 }
 
 h1 {
-    font-size: 3.052em;
+	font-size: 3.052em;
 }
 
 h2 {
-    font-size: 2.441em;
+	font-size: 2.441em;
 }
 
 h3 {
-    font-size: 1.953em;
+	font-size: 1.953em;
 }
 
 h4 {
-    font-size: 1.563em;
+	font-size: 1.563em;
 }
 
 h5 {
-    font-size: 1.25em;
+	font-size: 1.25em;
 }
 
 strong,
 b {
-    font-weight: 700;
+	font-weight: 700;
 }
 
 a {
-    color: var(--accent);
+	color: var(--orange);
+	text-decoration: none;
 }
 
 a:hover {
-    color: var(--accent);
+	color: var(--orange-accent);
 }
 
 p {
-    margin-bottom: 1em;
+	margin-bottom: 1.2em;
 }
 
 .prose p {
-    margin-bottom: 2em;
+	margin-bottom: 2em;
 }
 
 textarea {
-    width: 100%;
-    font-size: 16px;
+	width: 100%;
+	font-size: 16px;
 }
 
 input {
-    font-size: 16px;
+	font-size: 16px;
 }
 
 table {
-    width: 100%;
+	width: 100%;
 }
 
 img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
 }
 
 code {
-    padding: 2px 5px;
-    border-radius: 2px;
+	padding: 2px 5px;
+	border-radius: 2px;
 }
 
 pre {
-    padding: 1.5em;
-    border-radius: 8px;
+	padding: 1.5em;
+	border-radius: 8px;
 }
 
-pre>code {
-    all: unset;
+pre > code {
+	all: unset;
 }
 
 blockquote {
-    border-left: 4px solid var(--accent);
-    padding: 0 0 0 20px;
-    margin: 0px;
-    font-size: 1.333em;
+	border-left: 4px solid var(--accent);
+	padding: 0 0 0 20px;
+	margin: 0px;
+	font-size: 1.333em;
 }
 
 hr {
-    border: none;
-    border-top: 1px solid var(--accent);
+	border: none;
+	border-top: 1px solid var(--accent);
 }
 
 @media (max-width: 720px) {
-    body {
-        font-size: 18px;
-    }
+	body {
+		font-size: 18px;
+	}
 
-    main {
-        padding: 1em;
-    }
+	main {
+		padding: 1em;
+	}
 }
 
 .sr-only {
-    border: 0;
-    padding: 0;
-    margin: 0;
-    position: absolute !important;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-    clip: rect(1px 1px 1px 1px);
-    /* maybe deprecated but we need to support legacy browsers */
-    clip: rect(1px, 1px, 1px, 1px);
-    /* modern browsers, clip-path works inwards from each corner */
-    clip-path: inset(50%);
-    /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
-    white-space: nowrap;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+	clip: rect(1px 1px 1px 1px);
+	/* maybe deprecated but we need to support legacy browsers */
+	clip: rect(1px, 1px, 1px, 1px);
+	/* modern browsers, clip-path works inwards from each corner */
+	clip-path: inset(50%);
+	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
+	white-space: nowrap;
 }
