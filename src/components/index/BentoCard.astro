@@ -1,0 +1,155 @@
+---
+interface Props {
+	href?: string;
+	className?: string;
+	title: string;
+	content: string;
+	largeTitle?: boolean;
+}
+
+const { href, className, title, content, largeTitle } = Astro.props;
+
+let Header = "h2";
+if (largeTitle) Header = "h1";
+---
+
+<a href={href} class={`card ${className}`}>
+	<Header>{title}</Header>
+	<p>{content}</p>
+</a>
+
+<style>
+	.card {
+		position: relative;
+		overflow: hidden;
+		background: none;
+		color: var(--red);
+		border-radius: 8px;
+		padding: 20px;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+		transition: color 0.3s ease;
+		z-index: 1;
+	}
+	.card::before {
+		content: "";
+		position: absolute;
+		background: var(--black);
+		transition: all 0.3s ease;
+		z-index: -1;
+	}
+
+	.card:hover::before {
+		left: 0;
+	}
+
+	.card h1 {
+		font-size: 8rem;
+		line-height: 0.8em;
+	}
+
+	.card h2 {
+		font-size: 4rem;
+		line-height: 1em;
+	}
+
+	.large {
+		grid-column: span 2;
+		grid-row: span 2;
+	}
+
+	.wide {
+		grid-column: span 2;
+	}
+
+	.tall {
+		grid-row: span 2;
+	}
+
+	.card:nth-child(1) {
+		color: var(--black);
+		background: linear-gradient(34deg, var(--orange), var(--plum));
+	}
+	.card:nth-child(1):hover {
+		color: var(--light-blue);
+	}
+	.card:nth-child(1)::before {
+		background: var(--dark-blue);
+	}
+
+	.card:nth-child(2) {
+		color: var(--clay);
+		background: linear-gradient(134deg, var(--cream), var(--light-blue));
+	}
+	.card:nth-child(2):hover {
+		color: var(--black);
+	}
+	.card:nth-child(2)::before {
+		background: var(--sage);
+	}
+
+	.card:nth-child(3) {
+		color: var(--dark-blue);
+		background: linear-gradient(123deg, var(--orange), var(--plum));
+	}
+	.card:nth-child(3):hover {
+		color: var(--light-blue);
+	}
+	.card:nth-child(3)::before {
+		background: var(--clay);
+	}
+
+	.card:nth-child(4) {
+		color: var(--orange-700);
+		background: var(--blue-50);
+	}
+	.card:nth-child(4):hover {
+		color: var(--primary);
+	}
+	.card:nth-child(4)::before {
+		background: var(--clay);
+	}
+
+	.card:nth-child(5) {
+		color: var(--olive);
+		background: var(--dark-blue);
+	}
+	.card:nth-child(5):hover {
+		color: var(--primary);
+	}
+	.card:nth-child(5)::before {
+		background: var(--clay);
+	}
+
+	.card:nth-child(6) {
+		color: var(--black);
+		background: linear-gradient(39deg, var(--blue), var(--light-blue));
+	}
+	.card:nth-child(6):hover {
+		color: var(--red);
+	}
+	.card:nth-child(6)::before {
+		background: var(--light-blue);
+	}
+
+	.card:nth-child(7) {
+		color: var(--dark-blue);
+		background: var(--light-olive);
+	}
+	.card:nth-child(7):hover {
+		color: var(--primary);
+	}
+	.card:nth-child(7)::before {
+		background: var(--clay);
+	}
+
+	.card:nth-child(8) {
+		color: var(--dark-blue);
+		background: var(--light-olive);
+	}
+	.card:nth-child(8):hover {
+		color: var(--primary);
+	}
+	.card:nth-child(8)::before {
+		background: var(--clay);
+	}
+</style>

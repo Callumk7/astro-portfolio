@@ -87,23 +87,26 @@
 	--plum-500: #8e4162;
 	--plum-600: #6d3149;
 
+	--yellow: #faaf2c;
+	--pink: #fb9abe;
+
 	/* Original Color Aliases */
 	--orange: var(--orange-500);
 	--orange-accent: var(--orange-400);
 	--red: var(--orange-700);
 	--clay: var(--clay-500);
 	--light-olive: var(--olive-100);
-    --olive: var(--olive-400);
+	--olive: var(--olive-400);
 	--cream: var(--olive-50);
 
 	--light-blue: var(--blue-200);
 	--blue: var(--blue-500);
 	--dark-blue: var(--blue-700);
 
-    --sage: var(--sage-500);
-    --plum: var(--plum-500);
+	--sage: var(--sage-500);
+	--plum: var(--plum-500);
 
-    --rust: var(--rust-500);
+	--rust: var(--rust-500);
 
 	--neutral-1: var(--neutral-900);
 	--neutral-2: var(--neutral-800);
@@ -207,6 +210,30 @@
 	font-display: swap;
 }
 
+@font-face {
+	font-family: "Chubbo";
+	src: url("/fonts/Chubbo-Medium.woff") format("woff");
+	font-weight: 500;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Chubbo";
+	src: url("/fonts/Chubbo-Regular.woff") format("woff");
+	font-weight: 400;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Chubbo";
+	src: url("/fonts/Chubbo-Bold.woff") format("woff");
+	font-weight: 700;
+	font-display: swap;
+	font-style: normal;
+}
+
 body {
 	font-family: "Atkinson", sans-serif;
 	margin: 0;
@@ -219,12 +246,6 @@ body {
 	color: var(--foreground);
 	font-size: 20px;
 	line-height: 1.7;
-}
-
-main {
-	max-width: calc(100% - 6em);
-	margin: auto;
-	padding: 3em 1em;
 }
 
 h1,
