@@ -12,25 +12,115 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 		<script>
 			import { createRandomSweepStyles } from "../scripts/sweeping-cards";
 			createRandomSweepStyles();
+
+			document.addEventListener("DOMContentLoaded", () => {
+				const scrollCards = document.querySelectorAll("[data-scroll-to]");
+
+				scrollCards.forEach((card) => {
+					card.addEventListener("click", (e) => {
+						e.preventDefault();
+						const targetId = card.getAttribute(`data-scroll-to`);
+						const targetElement = document.getElementById(targetId!);
+
+						if (targetElement) {
+							targetElement.scrollIntoView({
+								behavior: "smooth",
+								block: "start",
+							});
+						}
+					});
+				});
+			});
 		</script>
 	</head>
 	<body>
 		<main>
 			<Bento>
-				<BentoCard
-					title="Hi, I am Callum"
-					content="I created it."
-					className="large"
-					largeTitle
-				/>
-				<BentoCard title="Game Master" content="I created it." className="wide" />
-				<BentoCard title="I can use CSS Grid" content="I created it." className="tall" />
-				<BentoCard title="playQ" content="A modern video game library manager" />
-				<BentoCard title="Game Master" content="I created it." className="wide" />
-				<BentoCard title="Game Master" content="I created it." className="tall" />
-				<BentoCard title="Blog." content="Come have a read of what I have got to say." href="/blog"/>
-				<BentoCard title="Game Master" content="I created it." className="wide" />
+				<BentoCard title="Hi, I am Callum" className="large" largeTitle>
+					<p>
+						Commodo non Lorem occaecat in fugiat ut irure veniam dolor incididunt. Dolore
+						proident quis magna et minim nisi dolor ut consequat exercitation nulla sit.
+					</p>
+				</BentoCard>
+				<BentoCard title="Game Master" className="wide">
+					<p>
+						Commodo commodo est officia id fugiat consectetur cillum tempor est sit
+						incididunt culpa id. Aliquip aliquip ea velit consectetur cillum enim.
+						Cupidatat minim consectetur mollit est amet consectetur et cillum sint nulla.
+						Eu velit eu nulla laborum minim elit non eiusmod ut et. Proident ea nostrud
+						nisi deserunt dolore enim.
+					</p>
+				</BentoCard>
+				<BentoCard title="I can use CSS Grid" className="tall" scrollTo="css-section">
+					<p>
+						Consequat duis culpa ex nulla dolore est ex aliquip. Cillum aute voluptate
+						incididunt. Aute labore dolore occaecat sunt irure elit culpa commodo. Do
+						nulla aliqua ex elit sunt enim consequat ullamco aliqua eiusmod minim quis
+						aliquip cupidatat. Deserunt cillum anim in exercitation ex elit ut laboris.
+						Enim ipsum occaecat occaecat dolore elit nostrud ipsum eu ad exercitation
+						voluptate ea. Culpa et et dolore ipsum ad.
+					</p>
+				</BentoCard>
+				<BentoCard title="playQ">
+					<p>
+						Exercitation irure consectetur sint aliqua ullamco commodo ullamco sit aute
+						ullamco et magna cupidatat commodo.
+					</p>
+				</BentoCard>
+				<BentoCard title="Game Master" className="wide">
+					<p>Id laboris irure in dolor id sint veniam.</p>
+				</BentoCard>
+				<BentoCard title="Game Master" className="tall">
+					<p>
+						Nisi dolore consequat aute excepteur officia nostrud tempor est ad eiusmod.
+						Nostrud voluptate eu sint exercitation duis cillum et voluptate do commodo
+						proident. Velit ex magna reprehenderit deserunt occaecat Lorem voluptate
+						eiusmod ipsum est culpa. Quis laboris non aliqua ea officia laborum et
+						cupidatat deserunt consectetur. Ut nulla minim laboris. Aliquip veniam
+						reprehenderit ex esse nostrud do laboris nisi Lorem. Pariatur consectetur
+						aliquip tempor veniam dolore ipsum proident reprehenderit. Minim veniam non
+						nulla nulla ex dolore labore elit in duis adipisicing aliqua minim sit elit.
+					</p>
+				</BentoCard>
+				<BentoCard title="Blog." scrollTo="blog-section">
+					<p>
+						Officia aliquip ullamco non sunt aliquip. Amet consectetur irure sit nulla
+						quis ipsum minim magna commodo esse qui cillum laborum aliqua. Deserunt nisi
+						commodo sunt sit ipsum quis. Consectetur dolore fugiat est nulla dolor amet ea
+						anim. Non aliquip eu nisi consequat proident dolore fugiat tempor
+						exercitation. Pariatur sunt laborum deserunt veniam quis dolore dolore et
+						nulla. Magna nostrud Lorem reprehenderit labore velit irure dolore laboris
+						esse. Commodo proident eu enim qui irure veniam esse cupidatat sint eiusmod
+						aliqua.
+					</p>
+				</BentoCard>
+				<BentoCard title="playQ" className="wide" kihim>
+					<p>Fugiat cillum nisi Lorem esse pariatur pariatur.</p>
+				</BentoCard>
 			</Bento>
+			<div class="section blog" id="blog-section">hello</div>
+			<div class="section css" id="css-section">hello</div>
 		</main>
 	</body>
 </html>
+
+<style>
+	p {
+		font-size: 0.9em;
+	}
+
+	.section {
+		height: calc(100vh - 24px);
+		background: var(--cream);
+		border-radius: 8px;
+		margin: 12px;
+	}
+
+	.blog {
+		background: var(--cream);
+	}
+
+	.css {
+		background: linear-gradient(89deg, var(--primary), var(--plum));
+	}
+</style>

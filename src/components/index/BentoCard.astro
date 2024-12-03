@@ -3,19 +3,20 @@ interface Props {
 	href?: string;
 	className?: string;
 	title: string;
-	content: string;
 	largeTitle?: boolean;
+	kihim?: boolean;
+	scrollTo?: string;
 }
 
-const { href, className, title, content, largeTitle } = Astro.props;
+const { href, className, title, largeTitle, kihim, scrollTo } = Astro.props;
 
 let Header = "h2";
 if (largeTitle) Header = "h1";
 ---
 
-<a href={href} class={`card ${className}`}>
-	<Header>{title}</Header>
-	<p>{content}</p>
+<a href={href} class:list={["card", className]} data-scroll-to={scrollTo}>
+	<Header class:list={[{ kihim: kihim }]}>{title}</Header>
+	<slot />
 </a>
 
 <style>
@@ -52,6 +53,15 @@ if (largeTitle) Header = "h1";
 		line-height: 1em;
 	}
 
+	.kihim {
+		font-family: "Kihim";
+		font-size: 5rem !important;
+	}
+
+	.card p {
+		font-family: "Inter";
+	}
+
 	.large {
 		grid-column: span 2;
 		grid-row: span 2;
@@ -69,22 +79,19 @@ if (largeTitle) Header = "h1";
 		color: var(--black);
 		background: linear-gradient(34deg, var(--orange), var(--plum));
 	}
-	.card:nth-child(1):hover {
-		color: var(--light-blue);
+	.card:hover {
+		color: var(--clay);
 	}
-	.card:nth-child(1)::before {
-		background: var(--dark-blue);
+	.card::before {
+		background: var(--light-blue);
 	}
 
 	.card:nth-child(2) {
-		color: var(--clay);
-		background: linear-gradient(134deg, var(--cream), var(--light-blue));
+		color: var(--cream);
+		background: var(--black);
 	}
 	.card:nth-child(2):hover {
-		color: var(--black);
-	}
-	.card:nth-child(2)::before {
-		background: var(--sage);
+		color: var(--clay);
 	}
 
 	.card:nth-child(3) {
@@ -92,10 +99,7 @@ if (largeTitle) Header = "h1";
 		background: linear-gradient(123deg, var(--orange), var(--plum));
 	}
 	.card:nth-child(3):hover {
-		color: var(--light-blue);
-	}
-	.card:nth-child(3)::before {
-		background: var(--clay);
+		color: var(--clay);
 	}
 
 	.card:nth-child(4) {
@@ -103,10 +107,7 @@ if (largeTitle) Header = "h1";
 		background: var(--blue-50);
 	}
 	.card:nth-child(4):hover {
-		color: var(--primary);
-	}
-	.card:nth-child(4)::before {
-		background: var(--clay);
+		color: var(--clay);
 	}
 
 	.card:nth-child(5) {
@@ -114,10 +115,7 @@ if (largeTitle) Header = "h1";
 		background: var(--dark-blue);
 	}
 	.card:nth-child(5):hover {
-		color: var(--primary);
-	}
-	.card:nth-child(5)::before {
-		background: var(--clay);
+		color: var(--clay);
 	}
 
 	.card:nth-child(6) {
@@ -125,10 +123,7 @@ if (largeTitle) Header = "h1";
 		background: linear-gradient(39deg, var(--blue), var(--light-blue));
 	}
 	.card:nth-child(6):hover {
-		color: var(--red);
-	}
-	.card:nth-child(6)::before {
-		background: var(--light-blue);
+		color: var(--clay);
 	}
 
 	.card:nth-child(7) {
@@ -136,10 +131,7 @@ if (largeTitle) Header = "h1";
 		background: var(--light-olive);
 	}
 	.card:nth-child(7):hover {
-		color: var(--primary);
-	}
-	.card:nth-child(7)::before {
-		background: var(--clay);
+		color: var(--clay);
 	}
 
 	.card:nth-child(8) {
@@ -147,9 +139,6 @@ if (largeTitle) Header = "h1";
 		background: var(--light-olive);
 	}
 	.card:nth-child(8):hover {
-		color: var(--primary);
-	}
-	.card:nth-child(8)::before {
-		background: var(--clay);
+		color: var(--clay);
 	}
 </style>
