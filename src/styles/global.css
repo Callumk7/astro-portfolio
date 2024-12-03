@@ -195,14 +195,6 @@
 }
 
 @font-face {
-	font-family: "Kihim";
-	src: url("/fonts/Kihim-Regular.woff") format("woff");
-	font-weight: 400;
-	font-display: swap;
-	font-style: normal;
-}
-
-@font-face {
 	font-family: "Space Grotesk";
 	src: url("/fonts/SpaceGrotesk-Regular.ttf") format("truetype");
 	font-weight: 400;
@@ -247,7 +239,7 @@ html {
 }
 
 body {
-	font-family: "Space Grotesk", sans-serif;
+	font-family: "Satoshi", sans-serif;
 	margin: 0;
 	padding: 0;
 	text-align: left;
@@ -266,8 +258,9 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "Satoshi", sans-serif;
-	font-weight: 900;
+	font-family: "Space Grotesk", sans-serif;
+	font-weight: 500;
+    text-transform: uppercase;
 	margin: 0 0 0.5rem 0;
 	line-height: 1.2;
 	padding-bottom: 0.3em;

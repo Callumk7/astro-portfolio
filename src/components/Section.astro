@@ -1,0 +1,30 @@
+---
+interface Props {
+	id?: string;
+	className?: string;
+}
+
+const { className, id } = Astro.props;
+---
+
+<section class={className} id={id}>
+	<slot />
+</section>
+
+<style>
+	section {
+		height: calc(100vh - 24px);
+		border-radius: 8px;
+		margin: 12px;
+	}
+
+	.light-blue {
+		background: var(--light-blue);
+		color: var(--red);
+	}
+
+	.black {
+		background: var(--black);
+		color: var(--primary);
+	}
+</style>

@@ -2,6 +2,8 @@
 import BaseHead from "../components/BaseHead.astro";
 import Bento from "../components/index/Bento.astro";
 import BentoCard from "../components/index/BentoCard.astro";
+import BentoCardTitle from "../components/index/BentoCardTitle.astro";
+import Section from "../components/Section.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
@@ -36,91 +38,110 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 	<body>
 		<main>
 			<Bento>
-				<BentoCard title="Hi, I am Callum" className="large" largeTitle>
+				<BentoCardTitle title="Hey, I'm Callum, Welcome." className="large">
 					<p>
-						Commodo non Lorem occaecat in fugiat ut irure veniam dolor incididunt. Dolore
-						proident quis magna et minim nisi dolor ut consequat exercitation nulla sit.
+						I am a web developer and designer, with experience building high quality user
+						experiences in the fintech, gaming, and charity spaces. Have a look around to
+						see some of my work.
+					</p>
+				</BentoCardTitle>
+				<BentoCard
+					href="/projects/game-master"
+					title="Case Study: Game Master"
+					className="wide"
+				>
+					<p>
+						I designed and built a web app for writing and organising notes, specifically
+						targetting TTRPG players. →
 					</p>
 				</BentoCard>
-				<BentoCard title="Game Master" className="wide">
+				<BentoCard title="My Experience ↓" className="tall" scrollTo="experience-section">
 					<p>
-						Commodo commodo est officia id fugiat consectetur cillum tempor est sit
-						incididunt culpa id. Aliquip aliquip ea velit consectetur cillum enim.
-						Cupidatat minim consectetur mollit est amet consectetur et cillum sint nulla.
-						Eu velit eu nulla laborum minim elit non eiusmod ut et. Proident ea nostrud
-						nisi deserunt dolore enim.
+						I have over 5 years experience in product management and UX design, and a
+						further 1 year as a full time web developer.
+					</p>
+					<p>
+						I am passionate about creating highly intuitive, delightful, and accessible
+						digital experiences.
 					</p>
 				</BentoCard>
-				<BentoCard title="I can use CSS Grid" className="tall" scrollTo="css-section">
+				<BentoCard title="Explore Projects →">
+					<div class="hover-area">
+						<p>
+							Exercitation irure consectetur sint aliqua ullamco commodo ullamco sit aute
+							ullamco et magna cupidatat commodo.
+						</p>
+					</div>
+				</BentoCard>
+				<BentoCard title="Blog →" className="wide" href="/blog">
 					<p>
-						Consequat duis culpa ex nulla dolore est ex aliquip. Cillum aute voluptate
-						incididunt. Aute labore dolore occaecat sunt irure elit culpa commodo. Do
-						nulla aliqua ex elit sunt enim consequat ullamco aliqua eiusmod minim quis
-						aliquip cupidatat. Deserunt cillum anim in exercitation ex elit ut laboris.
-						Enim ipsum occaecat occaecat dolore elit nostrud ipsum eu ad exercitation
-						voluptate ea. Culpa et et dolore ipsum ad.
+						I sometimes write my thoughts. You can read what I have been thinking about
+						here.
 					</p>
 				</BentoCard>
-				<BentoCard title="playQ">
+				<BentoCard title="Case Study: This Little Piggy →" className="tall">
 					<p>
-						Exercitation irure consectetur sint aliqua ullamco commodo ullamco sit aute
-						ullamco et magna cupidatat commodo.
+						I built a landing page and a simple admin workflow for a local animal charity.
 					</p>
 				</BentoCard>
-				<BentoCard title="Game Master" className="wide">
-					<p>Id laboris irure in dolor id sint veniam.</p>
-				</BentoCard>
-				<BentoCard title="Game Master" className="tall">
+				<BentoCard title="Case Study: playQ →" className="wide">
 					<p>
-						Nisi dolore consequat aute excepteur officia nostrud tempor est ad eiusmod.
-						Nostrud voluptate eu sint exercitation duis cillum et voluptate do commodo
-						proident. Velit ex magna reprehenderit deserunt occaecat Lorem voluptate
-						eiusmod ipsum est culpa. Quis laboris non aliqua ea officia laborum et
-						cupidatat deserunt consectetur. Ut nulla minim laboris. Aliquip veniam
-						reprehenderit ex esse nostrud do laboris nisi Lorem. Pariatur consectetur
-						aliquip tempor veniam dolore ipsum proident reprehenderit. Minim veniam non
-						nulla nulla ex dolore labore elit in duis adipisicing aliqua minim sit elit.
+						I built an app to organise and share lists of videogames. Powered by IGDB.
 					</p>
 				</BentoCard>
-				<BentoCard title="Blog." scrollTo="blog-section">
-					<p>
-						Officia aliquip ullamco non sunt aliquip. Amet consectetur irure sit nulla
-						quis ipsum minim magna commodo esse qui cillum laborum aliqua. Deserunt nisi
-						commodo sunt sit ipsum quis. Consectetur dolore fugiat est nulla dolor amet ea
-						anim. Non aliquip eu nisi consequat proident dolore fugiat tempor
-						exercitation. Pariatur sunt laborum deserunt veniam quis dolore dolore et
-						nulla. Magna nostrud Lorem reprehenderit labore velit irure dolore laboris
-						esse. Commodo proident eu enim qui irure veniam esse cupidatat sint eiusmod
-						aliqua.
-					</p>
-				</BentoCard>
-				<BentoCard title="playQ" className="wide" kihim>
-					<p>Fugiat cillum nisi Lorem esse pariatur pariatur.</p>
-				</BentoCard>
+				<BentoCard title="Contact Me ↓" scrollTo="contact-section" />
 			</Bento>
-			<div class="section blog" id="blog-section">hello</div>
-			<div class="section css" id="css-section">hello</div>
+			<Section className="light-blue" id="experience-section">
+				<div class="container">
+					<h1>Experience</h1>
+					<p>Tedst</p>
+					<p>Tedst</p>
+				</div>
+			</Section>
+			<Section className="black" id="contact-section">
+				<div class="container">
+					<h1 class="underline">Callum Kloos</h1>
+					<div class="grid">
+						<div>Email</div>
+						<div>Phone</div>
+						<div>Snail Mail</div>
+					</div>
+				</div>
+			</Section>
 		</main>
 	</body>
 </html>
 
 <style>
 	p {
-		font-size: 0.9em;
+		display: none;
 	}
 
 	.section {
 		height: calc(100vh - 24px);
-		background: var(--cream);
 		border-radius: 8px;
 		margin: 12px;
 	}
 
-	.blog {
-		background: var(--cream);
+	.contact {
+		background: linear-gradient(89deg, var(--primary), var(--plum));
 	}
 
-	.css {
-		background: linear-gradient(89deg, var(--primary), var(--plum));
+	.container {
+		padding: 4rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.underline {
+		text-decoration: underline;
+	}
+
+	@media (min-width: 1024px) {
+		p {
+			font-size: clamp(0.3em, 3vw + 0.3em, 1em);
+			display: inline;
+		}
 	}
 </style>
