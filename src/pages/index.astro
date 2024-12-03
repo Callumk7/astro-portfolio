@@ -67,10 +67,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 				</BentoCard>
 				<BentoCard title="Explore Projects →">
 					<div class="hover-area">
-						<p>
-							Exercitation irure consectetur sint aliqua ullamco commodo ullamco sit aute
-							ullamco et magna cupidatat commodo.
-						</p>
+						<p>Check out some of the other projects I have worked on.</p>
 					</div>
 				</BentoCard>
 				<BentoCard title="Blog →" className="wide" href="/blog">
@@ -114,7 +111,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 <style>
 	p {
-		display: none;
+		font-size: clamp(0.3em, 3vw + 0.3em, 0.9em);
+		line-height: 1.3em;
 	}
 
 	.section {
@@ -138,10 +136,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 		text-decoration: underline;
 	}
 
-	@media (min-width: 1024px) {
+	@media (max-width: 1024px) {
 		p {
-			font-size: clamp(0.3em, 3vw + 0.3em, 1em);
-			display: inline;
+			display: none;
 		}
 	}
 </style>
