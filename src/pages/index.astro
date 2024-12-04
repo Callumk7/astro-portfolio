@@ -1,5 +1,6 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+import Experience from "../components/cv/Experience.astro";
 import Bento from "../components/index/Bento.astro";
 import BentoCard from "../components/index/BentoCard.astro";
 import BentoCardTitle from "../components/index/BentoCardTitle.astro";
@@ -91,8 +92,56 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 			<Section className="light-blue" id="experience-section">
 				<div class="container">
 					<h1>Experience</h1>
-					<p>Tedst</p>
-					<p>Tedst</p>
+					<div class="exp-grid">
+						<div class="exp-left">
+							<Experience title="Freelance Development">
+								<p>
+									Laborum fugiat nisi est Lorem consequat proident proident esse anim sunt
+									labore non et. Aute aute amet excepteur esse. Fugiat eu ipsum nulla.
+									Cillum dolore dolor mollit nisi velit occaecat non ullamco dolore culpa
+									anim veniam nisi.
+								</p>
+							</Experience>
+							<Experience title="UX Designer">
+								<p>
+									Consectetur commodo sit do occaecat pariatur ullamco excepteur aliqua
+									sint officia. Commodo mollit non Lorem amet laborum exercitation. Esse
+									minim consequat proident irure laborum. Fugiat quis qui labore non
+									cillum ea esse ea nisi qui occaecat et. Proident reprehenderit sit
+									dolore ex ut consequat quis id aute sint officia sint elit magna nulla.
+								</p>
+							</Experience>
+							<Experience title="Product Manager">
+								<p>
+									Consectetur commodo sit do occaecat pariatur ullamco excepteur aliqua
+									sint officia. Commodo mollit non Lorem amet laborum exercitation. Esse
+									minim consequat proident irure laborum. Fugiat quis qui labore non
+									cillum ea esse ea nisi qui occaecat et. Proident reprehenderit sit
+									dolore ex ut consequat quis id aute sint officia sint elit magna nulla.
+								</p>
+							</Experience>
+						</div>
+						<div class="exp-right">
+							<Experience title="Skills">
+								<ul>
+									<li>React</li>
+									<li>React</li>
+									<li>React</li>
+									<li>React</li>
+									<li>React</li>
+									<li>React</li>
+									<li>React</li>
+									<li>React</li>
+									<li>React</li>
+									<li>React</li>
+									<li>React</li>
+								</ul>
+							</Experience>
+							<Experience title="Talking Points">
+								<p>Mollit esse nisi officia culpa.</p>
+							</Experience>
+						</div>
+					</div>
 				</div>
 			</Section>
 			<Section className="black" id="contact-section">
@@ -112,7 +161,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 <style>
 	p {
 		font-size: clamp(0.3em, 3vw + 0.3em, 0.9em);
-		line-height: 1.3em;
+		line-height: 1.6em;
 	}
 
 	.section {
@@ -134,6 +183,29 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 	.underline {
 		text-decoration: underline;
+	}
+
+	.exp-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1rem;
+		min-width: 0;
+	}
+	.exp-left {
+		width: 100%;
+		min-width: 0;
+		grid-column: span 2;
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.exp-right {
+		border-left: 2px solid var(--red);
+		padding-left: 16px;
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
 	}
 
 	@media (max-width: 1024px) {

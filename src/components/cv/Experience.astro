@@ -1,0 +1,40 @@
+---
+interface Props {
+	color?: "black" | "red";
+	title: string;
+}
+
+let { color, title } = Astro.props;
+if (!color) color = "black";
+---
+
+<div class:list={["exp-card", color]}>
+	<h3>{title}</h3>
+	<slot />
+</div>
+
+<style>
+	.exp-card {
+		padding: 1rem;
+		border-width: 2px;
+		border-style: solid;
+		border-radius: 1rem;
+		box-sizing: border-box;
+		min-width: 0;
+	}
+
+	.exp-card h3 {
+		text-transform: initial;
+		font-size: 2rem;
+	}
+
+	.black {
+		color: var(--black);
+		border-color: var(--black);
+	}
+
+	.red {
+		color: var(--red);
+		border-color: var(--red);
+	}
+</style>
