@@ -16,11 +16,11 @@ const { className, title } = Astro.props;
 	.card {
 		position: relative;
 		overflow: hidden;
-		background: var(--primary);
+		background: linear-gradient(220deg, var(--orange-500) 35%, var(--orange-400) 100%);
 		color: var(--black);
 		border-radius: 8px;
 		padding: 20px;
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 4px 20px var(--black);
 		z-index: 1;
 	}
 	.card h1 {
@@ -51,7 +51,7 @@ const { className, title } = Astro.props;
 		}
 		.large {
 			grid-column: span 2;
-			grid-row: span 2;
+			grid-row: span 4;
 		}
 	}
 </style>
