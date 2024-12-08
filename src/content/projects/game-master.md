@@ -6,21 +6,21 @@ coverImageUrl: http://image.com
 projectUrl: https://game-master-remix-client.pages.dev
 githubUrl: https://github.com/Callumk7/game-master
 tags:
-  - react
-  - remix
-  - cloudflare
-  - turso
-  - typescript
-  - react-aria-components
+- react
+- remix
+- cloudflare
+- turso
+- typescript
+- react-aria-components
 caseStudyUrl: 
 related: 
 tech:
-  - react
-  - remix
-  - cloudflare pages
-  - typescript
-  - SQL
-  - nodejs
+- react
+- remix
+- cloudflare pages
+- typescript
+- SQL
+- nodejs
 wip: false
 cvDescription: In order to learn the accessible component library from adobe, I created this project to combine various principles such as optimistic updates, serverless environments and monorepos.
 screenshotCount: 5

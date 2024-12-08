@@ -4,6 +4,7 @@ import Experience from "../components/cv/Experience.astro";
 import Bento from "../components/index/Bento.astro";
 import BentoCard from "../components/index/BentoCard.astro";
 import BentoCardTitle from "../components/index/BentoCardTitle.astro";
+import IndexHeader from "../components/IndexHeader.astro";
 import Section from "../components/Section.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
@@ -15,28 +16,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 		<script>
 			import { createRandomSweepStyles } from "../scripts/sweeping-cards";
 			createRandomSweepStyles();
-
-			document.addEventListener("DOMContentLoaded", () => {
-				const scrollCards = document.querySelectorAll("[data-scroll-to]");
-
-				scrollCards.forEach((card) => {
-					card.addEventListener("click", (e) => {
-						e.preventDefault();
-						const targetId = card.getAttribute(`data-scroll-to`);
-						const targetElement = document.getElementById(targetId!);
-
-						if (targetElement) {
-							targetElement.scrollIntoView({
-								behavior: "smooth",
-								block: "start",
-							});
-						}
-					});
-				});
-			});
 		</script>
 	</head>
+
 	<body>
+		<IndexHeader />
 		<main>
 			<Bento>
 				<BentoCardTitle title="Hey, I'm Callum, Welcome." className="large">
@@ -56,7 +40,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 						targetting TTRPG players. →
 					</p>
 				</BentoCard>
-				<BentoCard title="My Experience ↓" className="tall" scrollTo="experience-section">
+				<BentoCard title="My Experience ↓" className="tall" href="#experience-section">
 					<p>
 						I have over 5 years experience in product management and UX design, and a
 						further 1 year as a full time web developer.
@@ -66,7 +50,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 						digital experiences.
 					</p>
 				</BentoCard>
-				<BentoCard title="Explore Projects →">
+				<BentoCard title="Explore Projects →" href="/projects">
 					<div class="hover-area">
 						<p>Check out some of the other projects I have worked on.</p>
 					</div>
@@ -77,17 +61,21 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 						here.
 					</p>
 				</BentoCard>
-				<BentoCard title="Case Study: This Little Piggy →" className="tall">
+				<BentoCard
+					title="Case Study: This Little Piggy →"
+					className="tall"
+					href="/projects/this-little-piggy"
+				>
 					<p>
 						I built a landing page and a simple admin workflow for a local animal charity.
 					</p>
 				</BentoCard>
-				<BentoCard title="Case Study: playQ →" className="wide">
+				<BentoCard title="Case Study: playQ →" className="wide" href="/projects/playq">
 					<p>
 						I built an app to organise and share lists of videogames. Powered by IGDB.
 					</p>
 				</BentoCard>
-				<BentoCard title="Contact Me ↓" scrollTo="contact-section" />
+				<BentoCard title="Contact Me ↓" href="#contact-section" />
 			</Bento>
 			<Section className="light-blue" id="experience-section">
 				<div class="container">
@@ -146,11 +134,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 			</Section>
 			<Section className="black" id="contact-section">
 				<div class="container">
-					<h1 class="underline">Callum Kloos</h1>
-					<div class="grid">
-						<div>Email</div>
-						<div>Phone</div>
-						<div>Snail Mail</div>
+					<div class="contact-card">
+						<h1 class="underline">Callum Kloos</h1>
+						<div class="grid">
+							<div>Email</div>
+							<div>Phone</div>
+							<div>Snail Mail</div>
+						</div>
 					</div>
 				</div>
 			</Section>
@@ -159,19 +149,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 </html>
 
 <style>
+	main {
+		padding-top: 88px;
+	}
+
 	p {
 		font-size: clamp(0.3em, 3vw + 0.3em, 0.9em);
 		line-height: 1.6em;
-	}
-
-	.section {
-		height: calc(100vh - 24px);
-		border-radius: 8px;
-		margin: 12px;
-	}
-
-	.contact {
-		background: linear-gradient(89deg, var(--primary), var(--plum));
 	}
 
 	.container {
@@ -179,6 +163,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
+	}
+
+	.contact-card {
+		width: 50vw;
+		height: 80vh;
+		border-radius: 16px;
+		margin: auto;
+		background: var(--primary);
 	}
 
 	.underline {

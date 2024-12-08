@@ -46,13 +46,16 @@ export function createRandomSweepStyles() {
 		document.head.appendChild(style);
 
 		// Set initial direction
-		const initialDirection = directions[Math.floor(Math.random() * directions.length)];
+		const initialDirection =
+			directions[Math.floor(Math.random() * directions.length)];
 		style.textContent = `
 			.card:nth-child(${index + 1})::before {
 			${initialDirection.start}
+			transform: translateX(-100%);
 			}
 			.card:nth-child(${index + 1}):hover::before {
 			${initialDirection.end}
+			transform: translateX(0);
 			}
 			`;
 

@@ -8,7 +8,7 @@ let { color, title } = Astro.props;
 if (!color) color = "black";
 ---
 
-<div class:list={["exp-card", color]}>
+<div class:list={["exp-card fade-container", color]}>
 	<h3>{title}</h3>
 	<slot />
 </div>
@@ -37,4 +37,5 @@ if (!color) color = "black";
 		color: var(--red);
 		border-color: var(--red);
 	}
+
 </style>

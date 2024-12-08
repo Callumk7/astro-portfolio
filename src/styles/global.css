@@ -131,6 +131,14 @@
 }
 
 @font-face {
+    font-family: "Sentient";
+    src: url("/fonts/Sentient-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
 	font-family: "Satoshi";
 	src: url("/fonts/Satoshi-Regular.woff") format("woff");
 	font-weight: 400;
@@ -236,6 +244,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 84px;
 }
 
 body {
@@ -267,19 +276,19 @@ h6 {
 }
 
 h1 {
-	font-size: 3.052em;
+	font-size: 3em;
 }
 
 h2 {
-	font-size: 2.441em;
+	font-size: 2.3em;
 }
 
 h3 {
-	font-size: 1.953em;
+	font-size: 1.7em;
 }
 
 h4 {
-	font-size: 1.563em;
+	font-size: 1.5em;
 }
 
 h5 {

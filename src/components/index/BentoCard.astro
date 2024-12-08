@@ -3,13 +3,12 @@ interface Props {
 	href?: string;
 	className?: string;
 	title: string;
-	scrollTo?: string;
 }
 
-const { href, className, title, scrollTo } = Astro.props;
+const { href, className, title } = Astro.props;
 ---
 
-<a href={href} class:list={["card", className]} data-scroll-to={scrollTo}>
+<a href={href} class:list={["card", className]}>
 	<h2>{title}</h2>
 	<slot />
 </a>
@@ -32,9 +31,6 @@ const { href, className, title, scrollTo } = Astro.props;
 		background: var(--light-blue);
 		transition: all 0.3s ease;
 		z-index: -1;
-	}
-	.card:hover::before {
-		left: 0;
 	}
 
 	.card h2 {
