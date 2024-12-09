@@ -10,18 +10,20 @@ const { href, className, title } = Astro.props;
 
 <a href={href} class:list={["card", className]}>
 	<h2>{title}</h2>
-	<slot />
+	<p>
+		<slot />
+	</p>
 </a>
 
 <style>
 	.card {
 		position: relative;
 		overflow: hidden;
-		background: var(--neutral-2);
-		color: var(--red);
-		border-radius: 8px;
+		background: var(--card);
+		color: var(--white);
+		border-radius: var(--border-radius);
 		padding: 28px;
-		box-shadow: 0 4px 20px rgba(17, 17, 19, 0.5);
+		box-shadow: var(--box-shadow);
 		transition: color 0.3s ease;
 		z-index: 1;
 	}
@@ -37,8 +39,13 @@ const { href, className, title } = Astro.props;
 	}
 
 	.card h2 {
-		font-size: clamp(1rem, 3vw, 2rem);
+		font-size: 1.3rem;
 		line-height: 1em;
+	}
+
+	.card p {
+		font-size: 1rem;
+		line-height: 1.6em;
 	}
 
 	.large {

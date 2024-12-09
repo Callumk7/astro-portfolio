@@ -22,55 +22,40 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 	<body>
 		<IndexHeader />
 		<main>
-			<Section className="normal">
+			<Section>
 				<Bento>
 					<BentoCardTitle title="Hey, I'm Callum, Welcome." className="large">
-						<p>
-							I am a web developer and designer, with experience building high quality
-							user experiences in the fintech, gaming, and charity spaces. Have a look
-							around to see some of my work.
-						</p>
+						I am a web developer and designer, with experience building high quality user
+						experiences in the fintech, gaming, and charity spaces. Have a look around to
+						see some of my work.
 					</BentoCardTitle>
 					<BentoCard href="/projects/game-master" title="Case Study: Game Master">
-						<p>
-							I designed and built a web app for writing and organising notes,
-							specifically targetting TTRPG players. →
-						</p>
+						I designed and built a web app for writing and organising notes, specifically
+						targetting TTRPG players. →
 					</BentoCard>
 					<BentoCard title="Explore Projects →" href="/projects">
-						<div class="hover-area">
-							<p>Check out some of the other projects I have worked on.</p>
-						</div>
+						Check out some of the other projects I have worked on.
 					</BentoCard>
 					<BentoCard
 						title="Case Study: playQ →"
 						href="/projects/playq"
 						className="very-tall"
 					>
-						<p>
-							I built an app to organise and share lists of videogames. Powered by IGDB.
-						</p>
+						I built an app to organise and share lists of videogames. Powered by IGDB.
 					</BentoCard>
 					<BentoCard title="Blog →" className="wide" href="/blog">
-						<p>
-							I sometimes write my thoughts. You can read what I have been thinking about
-							here.
-						</p>
+						I sometimes write my thoughts. You can read what I have been thinking about
+						.card here.
 					</BentoCard>
 					<BentoCard title="My Experience ↓" href="#experience-section">
-						<p>
-							I have over 5 years experience in product management and UX design, and a
-							further 1 year as a full time web developer.
-						</p>
+						I have over 5 years experience in product management and UX design, and a
+						further 1 year as a full time web developer.
 					</BentoCard>
 					<BentoCard
 						title="Case Study: This Little Piggy →"
 						href="/projects/this-little-piggy"
 					>
-						<p>
-							I built a landing page and a simple admin workflow for a local animal
-							charity.
-						</p>
+						I built a landing page and a simple admin workflow for a local animal charity.
 					</BentoCard>
 					<BentoCard title="Contact Me ↓" href="#contact-section" />
 				</Bento>
@@ -147,13 +132,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 </html>
 
 <style>
-	main {
-		padding-top: 88px;
+	body {
+		width: 68vw;
+		margin: auto;
 	}
 
-	p {
-		font-size: clamp(0.3em, 3vw + 0.3em, 0.9em);
-		line-height: 1.6em;
+	main {
+		padding-top: 88px;
 	}
 
 	.container {

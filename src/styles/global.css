@@ -66,7 +66,7 @@
     --dark-blue: var(--blue-700);
 
     /* Semantic Colors */
-    --background: var(--neutral-800);
+    --background: var(--neutral-900);
     --foreground: var(--neutral-50);
     --black: var(--neutral-900);
     --white: var(--neutral-50);
@@ -75,6 +75,14 @@
     --secondary: var(--light-blue);
     --secondary-dark: var(--blue);
     --accent: var(--dark-red);
+    --card: var(--neutral-800);
+
+    --box-shadow-color: color-mix(in srgb, var(--black) 50%, transparent);
+    --box-shadow: 0 6px 17px var(--box-shadow-color);
+
+    --border-radius: 24px;
+
+    --global-padding: 12px;
 }
 
 @font-face {
@@ -200,7 +208,6 @@ body {
     padding: 0;
     text-align: left;
     background: var(--background);
-    background-size: 100% 600px;
     word-wrap: break-word;
     overflow-wrap: break-word;
     color: var(--foreground);

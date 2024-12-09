@@ -11,7 +11,7 @@ const navItems = [
 <header>
 	<nav>
 		<div class="logo">
-			<a href="/">CK</a>
+			<a href="/">callum kloos.</a>
 		</div>
 		<ul class="nav-links">
 			{
@@ -28,17 +28,20 @@ const navItems = [
 <style>
 	header {
 		position: fixed;
-		left: 12px;
-		right: 12px;
+		top: 12px;
+		left: 16%;
+		right: 16%;
 		z-index: 100;
-		background: var(--background);
+		background: var(--card);
+		border-radius: var(--border-radius);
+		box-shadow: var(--box-shadow);
 	}
 
 	nav {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 1rem 2rem;
+		padding: 0.4rem 1rem;
 		max-width: 1400px;
 		margin: 0 auto;
 	}
@@ -46,7 +49,7 @@ const navItems = [
 	.logo a {
 		font-size: 1.5rem;
 		font-weight: bold;
-		color: var(--primary);
+		color: var(--white);
 		text-decoration: none;
 	}
 
@@ -59,7 +62,7 @@ const navItems = [
 	}
 
 	.nav-links a {
-		color: var(--primary);
+		color: var(--white);
 		text-decoration: none;
 		font-size: 1rem;
 		transition:
