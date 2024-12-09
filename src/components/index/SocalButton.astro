@@ -1,0 +1,39 @@
+<a data-bento-card>
+	<slot name="icon" />
+	<span class="text">
+		<slot />
+	</span>
+</a>
+
+<style>
+	a {
+		position: relative;
+		background: var(--card);
+		overflow: hidden;
+		color: var(--white);
+		padding: var(--global-padding);
+		border-radius: var(--border-radius);
+		display: flex;
+		align-items: center;
+		width: fit-content;
+		flex-grow: 1;
+		transition: color 0.3s ease;
+		z-index: 1;
+	}
+	a:hover {
+		color: var(--dark-red);
+	}
+	a::before {
+		content: "";
+		position: absolute;
+		background: var(--light-blue);
+		transition: all 0.3s ease;
+		z-index: -1;
+	}
+
+	.text {
+		font-family: "Satoshi";
+		font-weight: 500;
+		margin-left: 6px;
+	}
+</style>

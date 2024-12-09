@@ -1,11 +1,18 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import Experience from "../components/cv/Experience.astro";
 import Bento from "../components/index/Bento.astro";
 import BentoCard from "../components/index/BentoCard.astro";
 import BentoCardTitle from "../components/index/BentoCardTitle.astro";
+import SocialButton from "../components/index/SocalButton.astro";
 import IndexHeader from "../components/IndexHeader.astro";
 import Section from "../components/Section.astro";
+
+import Bluesky from "../components/icons/bluesky.svg";
+import LinkedIn from "../components/icons/linkedin.svg";
+import Email from "../components/icons/email.svg";
+import Twitter from "../components/icons/twitter.svg";
+import Insta from "../components/icons/instagram.svg";
+
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
@@ -14,8 +21,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<script>
-			import { createRandomSweepStyles } from "../scripts/sweeping-cards";
-			createRandomSweepStyles();
+			import { sweepStyles } from "../scripts/sweeping-cards";
+
+			sweepStyles();
 		</script>
 	</head>
 
@@ -45,8 +53,32 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 					</BentoCard>
 					<BentoCard title="Blog →" className="wide" href="/blog">
 						I sometimes write my thoughts. You can read what I have been thinking about
-						.card here.
+						here.
 					</BentoCard>
+				</Bento>
+				<div class="socials">
+					<SocialButton>
+						<Bluesky slot="icon" />
+						Bluesky
+					</SocialButton>
+					<SocialButton>
+						<LinkedIn slot="icon" />
+						LinkedIn
+					</SocialButton>
+					<SocialButton>
+						<Insta slot="icon" />
+						Instagram
+					</SocialButton>
+					<SocialButton>
+						<Twitter slot="icon" />
+						Twitter (X)
+					</SocialButton>
+					<SocialButton>
+						<Email slot="icon" />
+						Email
+					</SocialButton>
+				</div>
+				<Bento>
 					<BentoCard title="My Experience ↓" href="#experience-section">
 						I have over 5 years experience in product management and UX design, and a
 						further 1 year as a full time web developer.
@@ -60,85 +92,18 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 					<BentoCard title="Contact Me ↓" href="#contact-section" />
 				</Bento>
 			</Section>
-			<Section className="light-blue" id="experience-section">
-				<div class="container">
-					<h1>Experience</h1>
-					<div class="exp-grid">
-						<div class="exp-left" id="exp-left">
-							<Experience title="Freelance Development">
-								<p>
-									Laborum fugiat nisi est Lorem consequat proident proident esse anim sunt
-									labore non et. Aute aute amet excepteur esse. Fugiat eu ipsum nulla.
-									Cillum dolore dolor mollit nisi velit occaecat non ullamco dolore culpa
-									anim veniam nisi.
-								</p>
-							</Experience>
-							<Experience title="UX Designer">
-								<p>
-									Consectetur commodo sit do occaecat pariatur ullamco excepteur aliqua
-									sint officia. Commodo mollit non Lorem amet laborum exercitation. Esse
-									minim consequat proident irure laborum. Fugiat quis qui labore non
-									cillum ea esse ea nisi qui occaecat et. Proident reprehenderit sit
-									dolore ex ut consequat quis id aute sint officia sint elit magna nulla.
-								</p>
-							</Experience>
-							<Experience title="Product Manager">
-								<p>
-									Consectetur commodo sit do occaecat pariatur ullamco excepteur aliqua
-									sint officia. Commodo mollit non Lorem amet laborum exercitation. Esse
-									minim consequat proident irure laborum. Fugiat quis qui labore non
-									cillum ea esse ea nisi qui occaecat et. Proident reprehenderit sit
-									dolore ex ut consequat quis id aute sint officia sint elit magna nulla.
-								</p>
-							</Experience>
-						</div>
-						<div class="exp-right">
-							<Experience title="Skills">
-								<ul>
-									<li>React</li>
-									<li>React</li>
-									<li>React</li>
-									<li>React</li>
-									<li>React</li>
-									<li>React</li>
-									<li>React</li>
-									<li>React</li>
-									<li>React</li>
-									<li>React</li>
-									<li>React</li>
-								</ul>
-							</Experience>
-							<Experience title="Talking Points">
-								<p>Mollit esse nisi officia culpa.</p>
-							</Experience>
-						</div>
-					</div>
-				</div>
-			</Section>
-			<Section className="normal" id="contact-section">
-				<div class="container">
-					<div class="contact-card">
-						<h1 class="underline">Callum Kloos</h1>
-						<div class="grid">
-							<div>Email</div>
-							<div>Phone</div>
-							<div>Snail Mail</div>
-						</div>
-					</div>
-				</div>
-			</Section>
 		</main>
 	</body>
 </html>
 
 <style>
 	body {
-		width: 68vw;
+		width: var(--global-width-pc);
 		margin: auto;
 	}
 
 	main {
-		padding-top: 88px;
+		padding-top: var(--header-height);
 	}
 
 	.container {
@@ -158,6 +123,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 	.underline {
 		text-decoration: underline;
+	}
+
+	.socials {
+		width: 100%;
+		display: flex;
+		justify-content: stretch;
+		gap: var(--global-padding);
 	}
 
 	.exp-grid {

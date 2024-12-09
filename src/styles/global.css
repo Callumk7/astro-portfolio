@@ -82,7 +82,10 @@
 
     --border-radius: 24px;
 
+    /* Global Variables and Placeholders */
     --global-padding: 12px;
+    --header-height: 88px;
+    --global-width-pc: 70vw;
 }
 
 @font-face {
