@@ -2,12 +2,13 @@
 interface Props {
 	className?: string;
 	title: string;
+	id?: string;
 }
 
-const { className, title } = Astro.props;
+const { className, title, id } = Astro.props;
 ---
 
-<div class:list={["card", className]}>
+<div id={id} class:list={["card fade-in", className]}>
 	<h1>{title}</h1>
 	<slot />
 </div>

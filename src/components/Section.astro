@@ -13,13 +13,17 @@ const { className, id } = Astro.props;
 
 <style>
 	section {
-		height: calc(100vh - var(--header-height) - 2 * var(--global-padding));
+		min-height: calc(100vh - var(--header-height) - 2 * var(--global-padding));
 		border-radius: 8px;
 		background: none;
 		display: flex;
 		flex-direction: column;
 		gap: var(--global-padding);
 		margin: var(--global-padding);
+	}
+
+	section + section {
+		margin-top: calc(var(--global-padding) + var(--header-height));
 	}
 
 	.normal {

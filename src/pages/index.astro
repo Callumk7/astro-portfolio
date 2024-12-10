@@ -14,6 +14,7 @@ import Twitter from "../components/icons/twitter.svg";
 import Insta from "../components/icons/instagram.svg";
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import ScrollFade from "../components/util/ScrollFade.astro";
 ---
 
 <!doctype html>
@@ -21,76 +22,92 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<script>
+			import { bentoAnimations } from "../scripts/animation";
 			import { sweepStyles } from "../scripts/sweeping-cards";
 
 			sweepStyles();
+			bentoAnimations();
 		</script>
 	</head>
 
 	<body>
-		<IndexHeader />
+		<ScrollFade threshold={100}>
+			<IndexHeader />
+		</ScrollFade>
 		<main>
 			<Section>
 				<Bento>
-					<BentoCardTitle title="Hey, I'm Callum, Welcome." className="large">
+					<BentoCardTitle title="Hey, I'm Callum, Welcome." className="large" id="left">
 						I am a web developer and designer, with experience building high quality user
 						experiences in the fintech, gaming, and charity spaces. Have a look around to
 						see some of my work.
 					</BentoCardTitle>
-					<BentoCard href="/projects/game-master" title="Case Study: Game Master">
+					<BentoCard
+						href="/projects/game-master"
+						title="Case Study: Game Master"
+						id="right"
+					>
 						I designed and built a web app for writing and organising notes, specifically
 						targetting TTRPG players. →
 					</BentoCard>
-					<BentoCard title="Explore Projects →" href="/projects">
+					<BentoCard title="Explore Projects →" href="/projects" id="right">
 						Check out some of the other projects I have worked on.
 					</BentoCard>
 					<BentoCard
 						title="Case Study: playQ →"
 						href="/projects/playq"
 						className="very-tall"
+						id="right"
 					>
 						I built an app to organise and share lists of videogames. Powered by IGDB.
 					</BentoCard>
-					<BentoCard title="Blog →" className="wide" href="/blog">
+					<BentoCard title="Blog →" className="wide" href="/blog" id="left">
 						I sometimes write my thoughts. You can read what I have been thinking about
 						here.
 					</BentoCard>
 				</Bento>
 				<div class="socials">
-					<SocialButton>
+					<SocialButton id="left">
 						<Bluesky slot="icon" />
 						Bluesky
 					</SocialButton>
-					<SocialButton>
+					<SocialButton id="left">
 						<LinkedIn slot="icon" />
 						LinkedIn
 					</SocialButton>
-					<SocialButton>
+					<SocialButton id="left">
 						<Insta slot="icon" />
 						Instagram
 					</SocialButton>
-					<SocialButton>
+					<SocialButton id="right">
 						<Twitter slot="icon" />
 						Twitter (X)
 					</SocialButton>
-					<SocialButton>
+					<SocialButton id="right">
 						<Email slot="icon" />
 						Email
 					</SocialButton>
 				</div>
 				<Bento>
-					<BentoCard title="My Experience ↓" href="#experience-section">
+					<BentoCard title="My Experience ↓" href="#experience-section" id="left">
 						I have over 5 years experience in product management and UX design, and a
 						further 1 year as a full time web developer.
 					</BentoCard>
 					<BentoCard
 						title="Case Study: This Little Piggy →"
 						href="/projects/this-little-piggy"
+						id="left"
 					>
 						I built a landing page and a simple admin workflow for a local animal charity.
 					</BentoCard>
-					<BentoCard title="Contact Me ↓" href="#contact-section" />
+					<BentoCard id="right" title="Contact Me ↓" href="#contact-section" />
 				</Bento>
+			</Section>
+			<Section className="light-blue" id="experience-section">
+				<h1>Experience</h1>
+			</Section>
+			<Section className="light-blue" id="experience-section">
+				<h1>Experience</h1>
 			</Section>
 		</main>
 	</body>

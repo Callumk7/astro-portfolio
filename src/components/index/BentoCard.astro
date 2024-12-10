@@ -3,12 +3,13 @@ interface Props {
 	href?: string;
 	className?: string;
 	title: string;
+	id?: string;
 }
 
-const { href, className, title } = Astro.props;
+const { id, href, className, title } = Astro.props;
 ---
 
-<a href={href} class:list={["card", className]} data-bento-card>
+<a id={id} href={href} class:list={["card fade-in", className]} data-bento-card>
 	<h2>{title}</h2>
 	<p>
 		<slot />
@@ -26,6 +27,7 @@ const { href, className, title } = Astro.props;
 		box-shadow: var(--box-shadow);
 		transition: color 0.3s ease;
 		z-index: 1;
+		min-height: 0;
 	}
 	.card:hover {
 		color: var(--dark-red);

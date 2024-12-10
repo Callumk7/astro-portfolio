@@ -1,0 +1,92 @@
+---
+const {
+	class: className = "",
+	topOffset = "0px",
+	threshold = 50,
+	scrollUpOnly = true,
+} = Astro.props;
+---
+
+<div
+	class:list={["scroll-fade", className]}
+	data-threshold={threshold}
+	data-scroll-up-only={scrollUpOnly}
+	style={`top: ${topOffset}`}
+>
+	<slot />
+</div>
+
+<style>
+	.scroll-fade {
+		display: flex;
+		position: sticky;
+		z-index: 20;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		transition: all 300ms ease;
+	}
+
+	.scroll-fade.hidden {
+		opacity: 0;
+		transform: translateY(-1rem);
+	}
+
+	.scroll-fade.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+</style>
+
+<script>
+	// @ts-nocheck
+	class ScrollFade {
+		constructor(element) {
+			this.element = element;
+			this.threshold = parseInt(element.dataset.threshold || "50");
+			this.scrollUpOnly = element.dataset.scrollUpOnly === "true";
+			this.lastScrollY = window.scrollY;
+
+			this.handleScroll = this.handleScroll.bind(this);
+			this.init();
+		}
+
+		init() {
+			this.element.classList.add("visible");
+			window.addEventListener("scroll", this.handleScroll, { passive: true });
+		}
+
+		handleScroll() {
+			const currentScrollY = window.scrollY;
+
+			if (this.scrollUpOnly) {
+				// Show when scrolling up or at top, hide when scrolling down
+				if (currentScrollY > this.lastScrollY && currentScrollY > this.threshold) {
+					this.element.classList.remove("visible");
+					this.element.classList.add("hidden");
+				} else {
+					this.element.classList.remove("hidden");
+					this.element.classList.add("visible");
+				}
+			} else {
+				// Simply show/hide based on scroll position
+				if (currentScrollY <= this.threshold) {
+					this.element.classList.remove("hidden");
+					this.element.classList.add("visible");
+				} else {
+					this.element.classList.remove("visible");
+					this.element.classList.add("hidden");
+				}
+			}
+
+			this.lastScrollY = currentScrollY;
+		}
+	}
+
+	// Initialize all scroll-fade elements
+	document.addEventListener("DOMContentLoaded", () => {
+		document.querySelectorAll(".scroll-fade").forEach((element) => {
+			new ScrollFade(element);
+		});
+	});
+</script>

@@ -1,4 +1,11 @@
-<a data-bento-card>
+---
+interface Props {
+	id?: string;
+}
+const { id } = Astro.props;
+---
+
+<a id={id} class="fade-in" data-bento-card>
 	<slot name="icon" />
 	<span class="text">
 		<slot />

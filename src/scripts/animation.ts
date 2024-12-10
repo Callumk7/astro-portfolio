@@ -1,5 +1,17 @@
-import { inView, animate, stagger } from "motion";
+import { animate, stagger } from "motion";
 
-inView("#exp-left", (info) => {
-	animate(info.target.querySelectorAll("div"), { opacity: 1, y: [50, 0] }, { delay: stagger(0.05, {startDelay: 1}) });
-});
+export function bentoAnimations() {
+	const elements = document.querySelectorAll(".fade-in");
+	animate(
+		elements,
+		{
+			y: [100, 0],
+			opacity: 1,
+		},
+		{ delay: stagger(0.02, {startDelay: 0.3}), duration: 0.3 },
+	);
+}
+
+export function inViewAnimations() {
+
+}
