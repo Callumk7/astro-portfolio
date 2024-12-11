@@ -1,46 +1,35 @@
 ---
-import BaseHead from "../../components/BaseHead.astro";
-import Header from "../../components/Header.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 
 const projects = await getCollection("projects");
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
-				<ul>
-					{
-						projects.map((project) => (
-							<li>
-								<a href={`/projects/${project.slug}`}>
-									<h4>{project.data.name}</h4>
-									<div class="tag-list">
-										{project.data.tech.map((t) => (
-											<span>{t}</span>
-										))}
-									</div>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-	</body>
-</html>
+<BaseLayout>
+
+	<main>
+		<section>
+			<ul>
+				{
+				projects.map((project) => (
+				<li>
+					<a href={`/projects/${project.slug}`}>
+						<h4>{project.data.name}</h4>
+						<div class="tag-list">
+							{project.data.tech.map((t) => (
+							<span>{t}</span>
+							))}
+						</div>
+					</a>
+				</li>
+				))
+				}
+			</ul>
+		</section>
+	</main>
+</BaseLayout>
 
 <style>
-	main {
-		margin-top: 36px;
-	}
 	ul {
 		display: flex;
 		flex-direction: column;

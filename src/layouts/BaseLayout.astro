@@ -1,0 +1,27 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import IndexHeader from "~/components/IndexHeader.astro";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<slot name="scripts" />
+
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+
+	<body>
+		<IndexHeader />
+		<slot />
+	</body>
+</html>
+
+<style>
+	body {
+		padding-top: var(--header-height);
+		width: var(--global-width-pc);
+		margin: auto;
+	}
+</style>

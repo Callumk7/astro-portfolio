@@ -78,13 +78,13 @@
     --card: var(--neutral-800);
 
     --box-shadow-color: color-mix(in srgb, var(--black) 50%, transparent);
-    --box-shadow: 0 6px 17px var(--box-shadow-color);
+    --box-shadow: 0 6px 30px var(--box-shadow-color);
 
     --border-radius: 24px;
 
     /* Global Variables and Placeholders */
     --global-padding: 12px;
-    --header-height: 88px;
+    --header-height: calc(88px + 2 * var(--global-padding));
     --global-width-pc: 70vw;
 }
 
@@ -347,3 +347,29 @@ hr {
     /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
     white-space: nowrap;
 }
+
+/* Cleaner Scroll Bar */
+html {
+	overflow-y: scroll;
+	scrollbar-width: thin;
+	scrollbar-color: var(--primary) var(--background);
+}
+
+::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+
+::-webkit-scrollbar-track {
+	background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+	background: hsl(var(--primary-2));
+	border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: hsl(var(--primary-1));
+}
+

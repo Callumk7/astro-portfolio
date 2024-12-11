@@ -23,7 +23,7 @@ const {
 		z-index: 20;
 		justify-content: space-between;
 		align-items: center;
-		width: 100%;
+		width: var(--global-width-pc);
 		transition: all 300ms ease;
 	}
 
@@ -46,6 +46,7 @@ const {
 			this.threshold = parseInt(element.dataset.threshold || "50");
 			this.scrollUpOnly = element.dataset.scrollUpOnly === "true";
 			this.lastScrollY = window.scrollY;
+			this.startScrollY = null;
 
 			this.handleScroll = this.handleScroll.bind(this);
 			this.init();
@@ -54,14 +55,31 @@ const {
 		init() {
 			this.element.classList.add("visible");
 			window.addEventListener("scroll", this.handleScroll, { passive: true });
+
+			// Create an Intersection Observer to detect when the element becomes visible
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						this.startScrollY = window.scrollY;
+					}
+				});
+			});
+
+			observer.observe(this.element);
 		}
 
 		handleScroll() {
 			const currentScrollY = window.scrollY;
 
+			// Don't process if we haven't set the initial scroll position
+			if (this.startScrollY === null) return;
+
+			// Calculate distance scrolled since header became visible
+			const scrolledDistance = Math.abs(currentScrollY - this.startScrollY);
+
 			if (this.scrollUpOnly) {
-				// Show when scrolling up or at top, hide when scrolling down
-				if (currentScrollY > this.lastScrollY && currentScrollY > this.threshold) {
+				// Show when scrolling up or at start position, hide when scrolling down
+				if (currentScrollY > this.lastScrollY && scrolledDistance > this.threshold) {
 					this.element.classList.remove("visible");
 					this.element.classList.add("hidden");
 				} else {
@@ -69,8 +87,8 @@ const {
 					this.element.classList.add("visible");
 				}
 			} else {
-				// Simply show/hide based on scroll position
-				if (currentScrollY <= this.threshold) {
+				// Simply show/hide based on scrolled distance
+				if (scrolledDistance <= this.threshold) {
 					this.element.classList.remove("hidden");
 					this.element.classList.add("visible");
 				} else {

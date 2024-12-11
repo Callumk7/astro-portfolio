@@ -21,6 +21,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "prettier": "^3.4.1",
-    "prettier-plugin-astro": "^0.14.1"
+    "prettier-plugin-astro": "^0.14.1",
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }
