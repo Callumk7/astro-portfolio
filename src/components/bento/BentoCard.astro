@@ -1,0 +1,31 @@
+---
+import BentoCardBase from "./BentoCardBase.astro";
+
+interface Props {
+	href?: string;
+	className?: string;
+	title: string;
+	id?: string;
+}
+
+const {title, ...props} = Astro.props;
+---
+
+<BentoCardBase {...props}>
+	<h2>{title}</h2>
+	<p>
+		<slot />
+	</p>
+</BentoCardBase>
+
+<style>
+	h2 {
+		font-size: 1.3rem;
+		line-height: 1em;
+	}
+
+	p {
+		font-size: 1rem;
+		line-height: 1.6em;
+	}
+</style>

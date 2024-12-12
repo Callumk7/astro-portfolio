@@ -32,20 +32,18 @@ const projects = await getCollection("projects");
 <style>
 	ul {
 		display: flex;
-		flex-direction: column;
-		gap: 2rem;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: var(--global-padding);
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
 	}
 
-	ul > li + li {
-		/* or use ul > li ~ li */
-		border-top: 1px solid var(--primary);
-	}
-
 	li {
-		padding: 16px;
+		padding: 2rem;
+		background: var(--card);
+		border-radius: var(--border-radius);
 	}
 
 	a {

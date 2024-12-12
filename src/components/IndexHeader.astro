@@ -1,6 +1,9 @@
 ---
+const { pathname } = Astro.url;
+const isHomePage = pathname === "/" || pathname === "";
+
 const navItems = [
-	{ label: "Home", href: "#" },
+	{ label: "Home", href: isHomePage ? "#" : "/" },
 	{ label: "Projects", href: "/projects" },
 	{ label: "Blog", href: "/blog" },
 	{ label: "Experience", href: "#experience-section" },

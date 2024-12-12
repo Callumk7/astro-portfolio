@@ -2,18 +2,14 @@
 interface Props {
 	href?: string;
 	className?: string;
-	title: string;
 	id?: string;
 }
 
-const { id, href, className, title } = Astro.props;
+const { id, href, className } = Astro.props;
 ---
 
 <a id={id} href={href} class:list={["card fade-in", className]} data-bento-card>
-	<h2>{title}</h2>
-	<p>
-		<slot />
-	</p>
+	<slot />
 </a>
 
 <style>
@@ -38,16 +34,6 @@ const { id, href, className, title } = Astro.props;
 		background: var(--light-blue);
 		transition: all 0.3s ease;
 		z-index: -1;
-	}
-
-	.card h2 {
-		font-size: 1.3rem;
-		line-height: 1em;
-	}
-
-	.card p {
-		font-size: 1rem;
-		line-height: 1.6em;
 	}
 
 	.large {

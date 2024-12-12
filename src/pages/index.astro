@@ -1,8 +1,8 @@
 ---
-import Bento from "~/components/index/Bento.astro";
-import BentoCard from "~/components/index/BentoCard.astro";
-import BentoCardTitle from "~/components/index/BentoCardTitle.astro";
-import SocialButton from "~/components/index/SocalButton.astro";
+import Bento from "~/components/bento/Bento.astro";
+import BentoCard from "~/components/bento/BentoCard.astro";
+import BentoCardTitle from "~/components/bento/BentoCardTitle.astro";
+import SocialButton from "~/components/SocalButton.astro";
 
 import Bluesky from "~/components/icons/bluesky.svg";
 import LinkedIn from "~/components/icons/linkedin.svg";
@@ -11,6 +11,7 @@ import Twitter from "~/components/icons/twitter.svg";
 import Github from "~/components/icons/github.svg";
 
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import BentoCardText from "~/components/bento/BentoCardText.astro";
 ---
 
 <BaseLayout>
@@ -86,9 +87,13 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 			>
 				I built a landing page and a simple admin workflow for a local animal charity.
 			</BentoCard>
-			<BentoCard title="Contact Me ↓" href="#contact-section" />
+			<BentoCardText href="#contact-section">
+				I am a brilliant member of the community
+			</BentoCardText>
 			<BentoCard className="tall" title="Contact Me ↓" href="#contact-section" />
-			<BentoCard className="large" title="Contact Me ↓" href="#contact-section" />
+			<BentoCardText className="large">
+				If you want to get in touch, please get in touch as quickly as possible
+			</BentoCardText>
 			<BentoCard title="Contact Me ↓" href="#contact-section" />
 		</Bento>
 	</main>

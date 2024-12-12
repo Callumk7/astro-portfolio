@@ -3,8 +3,6 @@ import type { CollectionEntry } from "astro:content";
 import Footer from "~/components/Footer.astro";
 import FormattedDate from "~/components/FormattedDate.astro";
 import BaseLayout from "./BaseLayout.astro";
-import IndexHeader from "~/components/IndexHeader.astro";
-import ScrollFade from "~/components/util/ScrollFade.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -12,9 +10,6 @@ const { title, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <BaseLayout />
-<ScrollFade threshold={100}>
-	<IndexHeader />
-</ScrollFade>
 <main>
 	<article>
 		<div class="hero-image">
@@ -46,7 +41,6 @@ const { title, pubDate, updatedDate, heroImage } = Astro.props;
 		width: calc(100% - 2em);
 		max-width: 100%;
 		margin: 0;
-		padding-top: calc(var(--header-height) + var(--global-padding));
 	}
 	.hero-image {
 		width: 100%;
