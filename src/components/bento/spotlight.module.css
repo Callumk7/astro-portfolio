@@ -1,0 +1,55 @@
+.card {
+    position: relative;
+    border-radius: 1rem;
+    background: var(--card);
+    overflow: hidden;
+    padding: 1.5rem;
+    isolation: isolate;
+    transition: background 0.3s ease;
+}
+
+.card:hover {
+    background: var(--neutral-700);
+}
+
+.card h2 {
+    font-size: 5rem;
+}
+
+.card p {
+    color: var(--red);
+}
+
+/* OR - Advanced Spotlight Effect with multiple layers */
+.spotlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    background: radial-gradient(1260px circle at var(--x) var(--y),
+            rgba(255, 255, 255, 0.06),
+            transparent 40%);
+}
+
+.card:hover .spotlight {
+    opacity: 1;
+}
+
+/* Optional: Add a second layer for more depth */
+.spotlight::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(400px circle at var(--x) var(--y),
+            rgba(255, 255, 255, 0.1),
+            transparent 40%);
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+}

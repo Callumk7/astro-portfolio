@@ -1,0 +1,119 @@
+.mouseBorder {
+    position: relative;
+    padding: 12px;
+    margin: -12px;
+    background: transparent;
+    pointer-events: auto;
+}
+
+.title {
+    font-size: 1.3rem;
+    line-height: 1em;
+}
+
+.body {
+    font-size: 1rem;
+    line-height: 1.6em;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    background: var(--card);
+    color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 28px;
+    box-shadow: var(--box-shadow);
+    transition: color 0.1s ease;
+    z-index: 1;
+    min-height: 0;
+    text-decoration: none;
+    display: block;
+}
+
+.card:hover {
+    color: var(--white);
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    background: var(--neutral-600);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Entry positions */
+.card[data-entry="top"]::before {
+    transform: translateY(-100%);
+}
+
+.card[data-entry="bottom"]::before {
+    transform: translateY(100%);
+}
+
+.card[data-entry="left"]::before {
+    transform: translateX(-100%);
+}
+
+.card[data-entry="right"]::before {
+    transform: translateX(100%);
+}
+
+/* Hover state */
+.card:hover::before {
+    transform: translate(0, 0);
+}
+
+/* Exit positions */
+.card[data-exit="top"]::before {
+    transform: translateY(-101%);
+}
+
+.card[data-exit="bottom"]::before {
+    transform: translateY(101%);
+}
+
+.card[data-exit="left"]::before {
+    transform: translateX(-101%);
+}
+
+.card[data-exit="right"]::before {
+    transform: translateX(101%);
+}
+
+/* Card size variants */
+.large {
+    grid-row: span 3;
+}
+
+.wide {
+    grid-row: span 1;
+}
+
+.tall {
+    grid-row: span 2;
+}
+
+.very-tall {
+    grid-row: span 3;
+}
+
+@media (min-width: 1024px) {
+    .wide {
+        grid-column: span 2;
+    }
+
+    .tall {
+        grid-row: span 2;
+    }
+
+    .large {
+        grid-column: span 2;
+        grid-row: span 3;
+    }
+}
