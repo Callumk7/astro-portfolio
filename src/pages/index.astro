@@ -1,6 +1,5 @@
 ---
 import Bento from "~/components/bento/Bento.astro";
-import BentoCard from "~/components/bento/BentoCard.astro";
 import BentoCardTitle from "~/components/bento/BentoCardTitle.astro";
 import SocialButton from "~/components/SocalButton.astro";
 
@@ -11,44 +10,45 @@ import Twitter from "~/components/icons/twitter.svg";
 import Github from "~/components/icons/github.svg";
 
 import BaseLayout from "~/layouts/BaseLayout.astro";
-import BentoCardText from "~/components/bento/BentoCardText.astro";
+import { SpotlightCard } from "~/components/bento/spotlight-card";
 ---
 
 <BaseLayout>
-	<Fragment slot="scripts">
+	<Fragment slot="head">
 		<script>
-			import { bentoAnimations } from "../scripts/animation";
-			import { sweepStyles } from "../scripts/sweeping-cards";
+			import { bentoAnimations } from "~/scripts/animation";
 
-			sweepStyles();
 			bentoAnimations();
 		</script>
 	</Fragment>
 	<main>
 		<Bento>
-			<BentoCardTitle title="Hey, I'm Callum, Welcome." className="large" id="left">
+			<BentoCardTitle title="Hey, I'm Callum, Welcome." className="large">
 				I am a web developer and designer, with experience building high quality user
 				experiences in the fintech, gaming, and charity spaces. Have a look around to see
 				some of my work.
 			</BentoCardTitle>
-			<BentoCard href="/projects/game-master" title="Case Study: Game Master" id="right">
+			<SpotlightCard
+				href="/projects/game-master"
+				title="Case Study: Game Master"
+				size="tall"
+				interactive
+				client:load
+			>
 				I designed and built a web app for writing and organising notes, specifically
 				targetting TTRPG players. →
-			</BentoCard>
-			<BentoCard title="Explore Projects →" href="/projects" id="right">
+			</SpotlightCard>
+			<SpotlightCard title="Explore Projects →" href="/projects" interactive client:load>
 				Check out some of the other projects I have worked on.
-			</BentoCard>
-			<BentoCard
+			</SpotlightCard>
+			<SpotlightCard
 				title="Case Study: playQ →"
 				href="/projects/playq"
-				className="very-tall"
-				id="right"
+				interactive
+				client:load
 			>
 				I built an app to organise and share lists of videogames. Powered by IGDB.
-			</BentoCard>
-			<BentoCard title="Blog →" className="wide" href="/blog" id="left">
-				I sometimes write my thoughts. You can read what I have been thinking about here.
-			</BentoCard>
+			</SpotlightCard>
 		</Bento>
 
 		<div class="socials">
@@ -75,26 +75,12 @@ import BentoCardText from "~/components/bento/BentoCardText.astro";
 		</div>
 
 		<Bento>
-			<BentoCard className="large" title="Contact Me ↓" href="#contact-section" />
-			<BentoCard title="My Experience ↓" href="#experience-section" id="left">
-				I have over 5 years experience in product management and UX design, and a further
-				1 year as a full time web developer.
-			</BentoCard>
-			<BentoCard
-				title="Case Study: This Little Piggy →"
-				href="/projects/this-little-piggy"
-				id="left"
-			>
-				I built a landing page and a simple admin workflow for a local animal charity.
-			</BentoCard>
-			<BentoCardText href="#contact-section">
-				I am a brilliant member of the community
-			</BentoCardText>
-			<BentoCard className="tall" title="Contact Me ↓" href="#contact-section" />
-			<BentoCardText className="large">
-				If you want to get in touch, please get in touch as quickly as possible
-			</BentoCardText>
-			<BentoCard title="Contact Me ↓" href="#contact-section" />
+			<SpotlightCard title="Blog →" href="/blog" interactive client:load>
+				I sometimes write my thoughts. You can read what I have been thinking about here.
+			</SpotlightCard>
+			<SpotlightCard title="Blog →" href="/blog" interactive size="wide" client:load>
+				I sometimes write my thoughts. You can read what I have been thinking about here.
+			</SpotlightCard>
 		</Bento>
 	</main>
 </BaseLayout>
