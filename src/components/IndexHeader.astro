@@ -30,12 +30,9 @@ const navItems = [
 
 <style>
 	header {
-		position: fixed;
-		top: 12px;
-		width: var(--global-width-pc);
-		z-index: 100;
-		margin: var(--global-padding) 6px;
-		background: color-mix(in srgb, var(--card) 95%, transparent);
+		width: 100%;
+		background: var(--card);
+		margin: var(--global-padding) 0;
 		backdrop-filter: blur(24px);
 		border-radius: var(--border-radius);
 		box-shadow: var(--box-shadow);
@@ -45,8 +42,7 @@ const navItems = [
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: var(--global-padding) 1rem;
-		max-width: 1400px;
+		padding: var(--global-padding);
 		margin: 0 auto;
 	}
 
