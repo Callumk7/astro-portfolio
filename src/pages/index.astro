@@ -1,7 +1,6 @@
 ---
 import Bento from "~/components/bento/Bento.astro";
 import BentoCardTitle from "~/components/bento/BentoCardTitle.astro";
-import SocialButton from "~/components/SocalButton.astro";
 
 import Bluesky from "~/components/icons/bluesky.svg";
 import LinkedIn from "~/components/icons/linkedin.svg";
@@ -11,6 +10,7 @@ import Github from "~/components/icons/github.svg";
 
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { SpotlightCard } from "~/components/bento/spotlight-card";
+import { SpotlightButton } from "~/components/bento/spotlight-button";
 ---
 
 <BaseLayout>
@@ -25,8 +25,7 @@ import { SpotlightCard } from "~/components/bento/spotlight-card";
 		<Bento>
 			<BentoCardTitle title="Hey, I'm Callum, Welcome." className="large">
 				I am a web developer and designer, with experience building high quality user
-				experiences in the fintech, gaming, and charity spaces. Have a look around to see
-				some of my work.
+				experiences in the fintech, gaming, and charity spaces. Have a look around to see some of my work.
 			</BentoCardTitle>
 			<SpotlightCard
 				href="/projects/game-master"
@@ -52,26 +51,46 @@ import { SpotlightCard } from "~/components/bento/spotlight-card";
 		</Bento>
 
 		<div class="socials">
-			<SocialButton id="left">
-				<Bluesky slot="icon" />
-				Bluesky
-			</SocialButton>
-			<SocialButton id="left">
-				<LinkedIn slot="icon" />
-				LinkedIn
-			</SocialButton>
-			<SocialButton id="left">
-				<Github slot="icon" />
-				Github
-			</SocialButton>
-			<SocialButton id="right">
-				<Twitter slot="icon" />
-				Twitter (X)
-			</SocialButton>
-			<SocialButton id="right">
-				<Email slot="icon" />
-				Email
-			</SocialButton>
+			<SpotlightButton interactive client:load>
+				<div>
+					<Bluesky />
+					<span>
+						Bluesky
+					</span>
+				</div>
+			</SpotlightButton>
+			<SpotlightButton interactive client:load>
+				<div>
+					<Github />
+					<span>
+						Github
+					</span>
+				</div>
+			</SpotlightButton>
+			<SpotlightButton interactive client:load>
+				<div>
+					<LinkedIn />
+					<span>
+						LinkedIn
+					</span>
+				</div>
+			</SpotlightButton>
+			<SpotlightButton interactive client:load>
+				<div>
+					<Email />
+					<span>
+						Email
+					</span>
+				</div>
+			</SpotlightButton>
+			<SpotlightButton interactive client:load>
+				<div>
+					<Twitter />
+					<span>
+						Twitter
+					</span>
+				</div>
+			</SpotlightButton>
 		</div>
 
 		<Bento>

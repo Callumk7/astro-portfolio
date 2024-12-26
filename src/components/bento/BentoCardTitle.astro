@@ -10,7 +10,9 @@ const { className, title, id } = Astro.props;
 
 <div id={id} class:list={["card fade-in", className]}>
 	<h1>{title}</h1>
-	<slot />
+	<p>
+		<slot />
+	</p>
 </div>
 
 <style>
@@ -26,6 +28,10 @@ const { className, title, id } = Astro.props;
 	}
 	.card h1 {
 		line-height: 1em;
+	}
+
+	.card p {
+		font-size: 1.3rem;
 	}
 
 	.large {

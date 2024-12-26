@@ -1,68 +1,33 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+import ProjectCard from "~/components/projects/ProjectCard.astro";
+import CardLayout from "~/components/CardLayout.astro";
 
 const projects = await getCollection("projects");
 ---
 
 <BaseLayout>
-
 	<main>
 		<section>
-			<ul>
+			<CardLayout>
 				{
-				projects.map((project) => (
-				<li>
-					<a href={`/projects/${project.slug}`}>
-						<h4>{project.data.name}</h4>
-						<div class="tag-list">
-							{project.data.tech.map((t) => (
-							<span>{t}</span>
-							))}
-						</div>
-					</a>
-				</li>
-				))
+					projects.map((project) => (
+						<ProjectCard
+							title={project.data.name}
+							description={project.data.description}
+							href={`/projects/${project.data.shortName}`}
+							tags={project.data.tags}
+						/>
+					))
 				}
-			</ul>
+			</CardLayout>
 		</section>
 	</main>
 </BaseLayout>
 
 <style>
-	ul {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		gap: var(--global-padding);
-		list-style-type: none;
-		margin: 0;
-		padding: 0;
-	}
-
-	li {
-		padding: 2rem;
-		background: var(--card);
-		border-radius: var(--border-radius);
-	}
-
-	a {
-		color: var(--foreground);
-	}
-
-	a:hover > h4 {
-		color: var(--primary);
-	}
-
-	.tag-list {
-		display: flex;
-		gap: 6px;
-	}
-
-	.tag-list > span {
-		font-size: 0.7em;
-		border-radius: 24px;
-		padding: 1px 12px;
-		border: 1px solid var(--primary)
-	}
+section {
+	margin-bottom: 64px;
+}
 </style>

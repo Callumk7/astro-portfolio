@@ -1,30 +1,44 @@
 ---
+import Card from "../Card.astro";
+
 interface Props {
 	title: string;
 	description: string;
+	href: string;
+	tags: string[];
 }
 
-const { title, description } = Astro.props;
+const { title, description, href, tags } = Astro.props;
 ---
 
-<div>
-	<h4>{title}</h4>
-	<p>{description}</p>
-</div>
+<Card>
+	<a href={href}>
+		<h4>{title}</h4>
+		<p>{description}</p>
+		<div class="tag-list">
+			{tags.map((tag) => <span>{tag}</span>)}
+		</div>
+	</a>
+</Card>
 
 <style>
-div{
-	color: var(--red);
-	background: var(--light-blue);
-	padding: 16px;
-	border-radius: 16px;
-	height: 100%;
-	box-sizing: border-box;
-}
-div p {
-	font-size: 0.9em;
-}
-div h4 {
-	font-size: 1.2rem;
-}
+	a {
+		color: var(--foreground);
+	}
+
+	a:hover > h4 {
+		color: var(--primary);
+	}
+
+	.tag-list {
+		display: flex;
+		gap: 6px;
+	}
+
+	.tag-list > span {
+		font-size: 0.7em;
+		border-radius: 24px;
+		padding: 1px 12px;
+		border: 1px solid var(--primary);
+	}
 </style>

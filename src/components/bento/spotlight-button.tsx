@@ -1,17 +1,14 @@
 import { createSignal, type Component, type JSXElement } from "solid-js";
 import styles from "./spotlight.module.css";
 
-const cx = (...classes: (string | false)[]) => classes.filter(Boolean).join(" ");
-
-interface SpotlightCardProps {
-	title: string;
+interface SpotlightButtonProps {
 	href?: string;
 	children: JSXElement;
 	interactive?: boolean;
 	size?: "tall" | "wide" | "large";
 }
 
-export const SpotlightCard: Component<SpotlightCardProps> = (props) => {
+export const SpotlightButton: Component<SpotlightButtonProps> = (props) => {
 	const [position, setPosition] = createSignal({ x: 0, y: 0 });
 	let cardRef: HTMLAnchorElement | undefined;
 
@@ -29,13 +26,7 @@ export const SpotlightCard: Component<SpotlightCardProps> = (props) => {
 		<a
 			href={props.href}
 			ref={cardRef}
-			class={cx(
-				styles.card,
-				props.size === "large" && styles.large,
-				props.size === "wide" && styles.wide,
-				props.size === "tall" && styles.tall,
-				"fade-in"
-			)}
+			class={`${styles.button} fade-in`}
 			onMouseMove={handleMouseMove}
 			data-interactive={props.interactive}
 		>
@@ -48,10 +39,7 @@ export const SpotlightCard: Component<SpotlightCardProps> = (props) => {
 					}}
 				/>
 			)}
-			<div class={styles.content}>
-				<h3>{props.title}</h3>
-				<p>{props.children}</p>
-			</div>
+			<p>{props.children}</p>
 		</a>
 	);
 };
