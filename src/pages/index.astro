@@ -43,6 +43,7 @@ import { SpotlightButton } from "~/components/bento/spotlight-button";
 			<SpotlightCard
 				title="Case Study: playQ →"
 				href="/projects/playq"
+				size="wide"
 				interactive
 				client:load
 			>
@@ -52,7 +53,7 @@ import { SpotlightButton } from "~/components/bento/spotlight-button";
 
 		<div class="socials">
 			<SpotlightButton interactive client:load>
-				<div>
+				<div class="item-align">
 					<Bluesky />
 					<span>
 						Bluesky
@@ -60,7 +61,7 @@ import { SpotlightButton } from "~/components/bento/spotlight-button";
 				</div>
 			</SpotlightButton>
 			<SpotlightButton interactive client:load>
-				<div>
+				<div class="item-align">
 					<Github />
 					<span>
 						Github
@@ -68,7 +69,7 @@ import { SpotlightButton } from "~/components/bento/spotlight-button";
 				</div>
 			</SpotlightButton>
 			<SpotlightButton interactive client:load>
-				<div>
+				<div class="item-align">
 					<LinkedIn />
 					<span>
 						LinkedIn
@@ -76,7 +77,7 @@ import { SpotlightButton } from "~/components/bento/spotlight-button";
 				</div>
 			</SpotlightButton>
 			<SpotlightButton interactive client:load>
-				<div>
+				<div class="item-align">
 					<Email />
 					<span>
 						Email
@@ -84,7 +85,7 @@ import { SpotlightButton } from "~/components/bento/spotlight-button";
 				</div>
 			</SpotlightButton>
 			<SpotlightButton interactive client:load>
-				<div>
+				<div class="item-align">
 					<Twitter />
 					<span>
 						Twitter
@@ -94,11 +95,11 @@ import { SpotlightButton } from "~/components/bento/spotlight-button";
 		</div>
 
 		<Bento>
-			<SpotlightCard title="Blog →" href="/blog" interactive client:load>
-				I sometimes write my thoughts. You can read what I have been thinking about here.
-			</SpotlightCard>
 			<SpotlightCard title="Blog →" href="/blog" interactive size="wide" client:load>
 				I sometimes write my thoughts. You can read what I have been thinking about here.
+			</SpotlightCard>
+			<SpotlightCard title="Case Study: Guinea Pigs →" href="/blog" interactive client:load>
+				I built a web app for a local animal charity that focuses on rescuing guinea pigs. Read more!
 			</SpotlightCard>
 		</Bento>
 	</main>
@@ -159,6 +160,12 @@ import { SpotlightButton } from "~/components/bento/spotlight-button";
 		display: flex;
 		flex-direction: column;
 		gap: 16px;
+	}
+
+	.item-align {
+		display: flex;
+		gap: 12px;
+		align-items: center;
 	}
 
 	@media (max-width: 1024px) {
